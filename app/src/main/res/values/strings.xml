@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AppMoneyManagerSqlite</string>
+    <string name="main_activity_name">All Tasks</string>
+    <string name="add_task_activity_name">Add a New Task</string>
+    <string name="edit_task_description">Describe your task</string>
+    <string name="add_button">add</string>
+    <string name="delete_button">delete</string>
+    <string name="update_button">update</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:background="@color/colorWhite"
+    android:padding="12dp"
+    android:elevation="4dp"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_text"
+        android:visibility="gone"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtName"
+        android:textColor="@color/colorBlack"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="16sp"
+        android:padding="4dp"
+        android:layout_marginTop="8dp"
+        android:text="Name" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/txtKilo"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorBlack"
+        android:padding="4dp"
+        android:text="Kilogam" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPrice"
+        android:padding="4dp"
+        android:textColor="@color/colorBlack"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:text="Price" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/txtAddress"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:padding="4dp"
+        android:text="Address Market" />
+
+</LinearLayout>
