@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.ClickListener {
         mLayoutManager = LinearLayoutManager(this)
         recyclerViewTasks?.setLayoutManager(mLayoutManager)
         dailyConsumption = ArrayList()
+        mAdapter?.notifyDataSetChanged()
         val fabButton: FloatingActionButton = this.findViewById(R.id.fab)
         fabButton.setOnClickListener { // Create a new intent to start an AddTaskActivity
             val addTaskIntent = Intent(this, AddTaskActivity::class.java)
@@ -42,16 +43,15 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.ClickListener {
         dbManager = MyDBManager(this)
         recyclerViewTasks?.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recyclerViewTasks?.adapter = mAdapter
         dbManager?.open()
         val cursor = dbManager?.fetch()
         while (cursor?.moveToNext()!!) {
-            val id = cursor.getString(cursor.getColumnIndex(DataBaseHelper.ID))
+            val cid = cursor.getInt(cursor.getColumnIndex(DataBaseHelper.ID))
             val name = cursor.getString(cursor.getColumnIndex(DataBaseHelper.NAME))
             val kilo = cursor.getString(cursor.getColumnIndex(DataBaseHelper.KILO))
             val price = cursor.getString(cursor.getColumnIndex(DataBaseHelper.PRICE))
             val address = cursor.getString(cursor.getColumnIndex(DataBaseHelper.ADDRESS))
-            val list = DailyConsumption(name, kilo, price, address, id)
+            val list = DailyConsumption(name, kilo, price, address,cid)
             dailyConsumption?.add(list)
         }
 
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.ClickListener {
         intent.putExtra("price", price)
         intent.putExtra("address", address)
         intent.putExtra("id", id)
-
         startActivity(intent)
     }
+
 }

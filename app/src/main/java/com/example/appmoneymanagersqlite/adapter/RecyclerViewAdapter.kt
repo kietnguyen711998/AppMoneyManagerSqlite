@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appmoneymanagersqlite.R
 import com.example.appmoneymanagersqlite.model.DailyConsumption
@@ -27,10 +28,12 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val list = listClasses!![position]
+        holder.id.text = list.mId.toString()
         holder.name.text = list.mName
         holder.kilo.text = list.mKilo
         holder.price.text = list.mPrice
         holder.address.text = list.mAddressMarket
+
     }
 
     fun setClickListener(clickListener: MainActivity) {
@@ -43,6 +46,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
+        val id = itemView.id_text
         val name = itemView.txtName
         val kilo = itemView.txtKilo
         val price = itemView.txtPrice
@@ -52,6 +56,9 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
             if (clickListener != null) {
                 clickListener?.itemClicked(v, position)
             }
+        }
+        init {
+            itemView.setOnClickListener(this)
         }
     }
 
